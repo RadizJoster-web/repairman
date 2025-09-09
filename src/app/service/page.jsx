@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, use } from "react";
 
 import Navbar from "@/app/components/comon/Navbar";
 import Footer from "@/app/components/comon/Footer";
@@ -12,7 +12,11 @@ import Step3 from "./steps/3";
 import Button from "@/app/components/elements/button";
 import ButtonV2 from "../components/elements/buttonV2";
 
-export default function DescribeTask() {
+export default function DescribeTask({ searchParams }) {
+  // Unwrap searchParams biar bisa dipakai normal
+  const params = use(searchParams);
+  const typeParams = params.type ? params.type : null;
+
   // Step Bar
   const [step, setStep] = useState(1);
 
@@ -86,6 +90,7 @@ export default function DescribeTask() {
             setSelectedDate,
             time,
             setTime,
+            typeParams,
           }}
         />
 

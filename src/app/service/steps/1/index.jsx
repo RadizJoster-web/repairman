@@ -18,6 +18,7 @@ export default function Step1({
   setSelectedDate,
   time,
   setTime,
+  typeParams,
 }) {
   return (
     <div className={`${step === 1 ? "flex" : "hidden"} w-full flex flex-col`}>
@@ -29,7 +30,7 @@ export default function Step1({
         {/* Location */}
         <Location {...{ location, setLocation, houseNumber, setHouseNumber }} />
         {/* Task Option */}
-        <TaskOption {...{ taskOption, setTaskOption }} />
+        <TaskOption {...{ taskOption, setTaskOption, typeParams }} />
         {/* Detail Task */}
         <DetailTask {...{ detail, setDetail }} />
         {/* Date */}

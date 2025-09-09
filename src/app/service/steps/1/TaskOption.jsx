@@ -5,12 +5,11 @@ import { useSearchParams } from "next/navigation";
 
 import { MdOutlineCompareArrows } from "react-icons/md";
 
-export default function Location({ taskOption, setTaskOption }) {
+export default function Location({ taskOption, setTaskOption, typeParams }) {
   // Get params type
-  const searchParams = useSearchParams();
-  const typeParams = searchParams.get("type");
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const [open, setOpen] = useState(false);
   const [filled, setFilled] = useState(false);
@@ -27,6 +26,9 @@ export default function Location({ taskOption, setTaskOption }) {
       } catch (err) {
         console.error(err);
         setError(err.message);
+      } finally {
+        console.log("Data fetched complete.");
+        setLoading(false);
       }
     };
 
@@ -81,6 +83,7 @@ export default function Location({ taskOption, setTaskOption }) {
           open ? "opacity-100" : "opacity-0"
         }`}
       >
+        {loading && <p>Loading...</p>}
         {data.map((category, index) => (
           <div key={index}>
             {category.items.map((task, i) => (
