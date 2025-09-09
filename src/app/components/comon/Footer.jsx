@@ -28,7 +28,7 @@ export default function Footer() {
         <Link href="/" className="w-[150px]">
           <div>
             <Image
-              src="/repairman-logo.png"
+              src="/images/repairman-logo.png"
               alt="Repairman Logo"
               width={150}
               height={120}

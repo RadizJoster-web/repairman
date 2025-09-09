@@ -33,7 +33,7 @@ export default function Navbar({ isLight = false }) {
     >
       <Link href="/">
         <Image
-          src="/repairman-logo.png"
+          src="/images/repairman-logo.png"
           alt="Repairman Logo"
           width={100}
           height={24}
